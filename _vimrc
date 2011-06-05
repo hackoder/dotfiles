@@ -152,7 +152,7 @@ nnoremap <leader>. :lcd %:p:h<CR>
 
 " Disable the colorcolumn when switching modes.  Make sure this is the
 " first autocmd for the filetype here
-autocmd FileType * setlocal colorcolumn=0
+" autocmd FileType * setlocal colorcolumn=0
 
 """ Insert completion
 " don't select first item, follow typing in autocomplete
@@ -160,9 +160,9 @@ set completeopt=menuone,longest,preview
 set pumheight=6             " Keep a small completion window
 
 " show a line at column 79
- if exists("&colorcolumn")
-    set colorcolumn=79
-endif
+" if exists("&colorcolumn")
+"    set colorcolumn=79
+" endif
 
 """ Moving Around/Editing
 set cursorline              " have a line indicate the cursor location
@@ -284,3 +284,17 @@ EOF
 if filereadable($VIRTUAL_ENV . '/.vimrc')
     source $VIRTUAL_ENV/.vimrc
 endif
+
+
+set mouse=a
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
+function! LoadRope()                                                                                       
+py << EOF
+import ropevim
+ropevim.open_project('.')
+EOF
+endfunction
+
+silent call LoadRope()
+

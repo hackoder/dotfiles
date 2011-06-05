@@ -172,3 +172,6 @@ export EDITOR=vim
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
 export EDITOR=vim
+
+alias ws="cd ~/project/;source bin/activate;export DJANGO_SETTINGS_FILE=django_project.settings;export      DJANGO_SETTINGS_MODULE=django_project.settings;"
+alias wsi="ws;vim;"  
