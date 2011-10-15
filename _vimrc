@@ -291,8 +291,11 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 function! LoadRope()                                                                                       
 py << EOF
-import ropevim
-ropevim.open_project('.')
+try:
+    import ropevim
+    ropevim.open_project('.')
+except ImportError:
+    pass
 EOF
 endfunction
 
